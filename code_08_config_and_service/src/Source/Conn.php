@@ -1,21 +1,23 @@
 <?php
 
+namespace Source;
+
 class Conn implements IConn
 {
-    private $dsn;
+    private $dns;
     private $user;
     private $pass;
 
-    public function __construct($dsn, $user, $pass)
+    public function __construct($dns, $user, $pass)
     {
-        $this->dsn = $dsn;
+        $this->dns = $dns;
         $this->user = $user;
         $this->pass = $pass;
     }
 
     public function connect()
     {
-        $db = new \PDO($this->dsn, $this->user, $this->pass);
+        return new \PDO($this->dns, $this->user, $this->pass);
     }
 
 }
